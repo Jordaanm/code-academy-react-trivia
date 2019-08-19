@@ -1,0 +1,42 @@
+@import "./shared";
+
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.category-hero {
+    text-decoration: none;
+    width: calc(100% / 3 - 2rem);
+    min-width: 15rem;
+    color: $font-color;
+    margin: 1rem;
+    text-align: center;
+    transition: transform 0.1s;
+    cursor: pointer;
+    position: relative;
+    @include shadow();
+
+    .glass {
+        @include glass-inner();
+        @include pattern-page();
+        z-index: 0;
+    }
+
+    h2 {
+        z-index: 10;
+        position: relative;
+    }
+
+    &:hover {    
+        @include shadow(10px);
+        transform: translate(-5px, -5px);
+        // transform: scale(1.05);
+        .glass {
+            filter: blur(6px);
+        }
+    }
+
+
+}

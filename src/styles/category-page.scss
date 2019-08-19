@@ -1,0 +1,88 @@
+@import "./shared";
+
+.question-container {    
+    padding: 0 0.5rem;
+}
+
+.score {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.question {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    word-break: break-word;
+
+    &.answered {
+        .correct {
+            border-color: green;
+        }
+
+        .incorrect {
+            border-color: red;
+        }
+    }
+
+
+    .question-title {
+        text-align: center;
+        // position: relative;
+        h3 {
+            position: relative;
+            z-index: 1;
+        }
+        // .glass {
+        //     @include glass-inner();
+        //     @include pattern-page();
+        //     z-index: 0;
+        // }
+    }
+
+    .question-difficulty {
+        text-align: left;
+        display: block;
+        width: 100%;
+        text-transform: capitalize;
+    }
+
+    .question-answers {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        
+        label {
+            width: 100%;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border: 4px solid transparent;
+            border-radius: $radius;
+            @include shadow();
+
+            input {
+                opacity: 0;
+                width: 0;
+            }
+
+            &:hover {
+                @include shadow(10px);
+                border-color: rgba(255,255,255,0.5);
+                .inner {
+                    filter: blur(0);
+                }
+            }
+        }
+    }
+}
+
+.round-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    button {
+        margin-top: 1em;
+    }
+}

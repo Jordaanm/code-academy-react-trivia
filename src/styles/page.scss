@@ -1,0 +1,32 @@
+@import "./shared";
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  .page-container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  
+  &>header {
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  &>main {
+    flex: 1;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  &>footer {
+    text-align: center;
+    padding: 1rem;
+  }
+}
