@@ -7,7 +7,7 @@ export class TriviaStore {
     public static CATEGORIES_ENDPOINT: string = 'https://opentdb.com/api_category.php';
     
 
-    public generateApiUrl(categoryId: string, amount: number = 20): string {
+    public generateApiUrl(categoryId: string, amount: number = 5): string {
         return `https://opentdb.com/api.php?amount=${amount}&category=${categoryId}&type=multiple&encode=base64`;
     }
 

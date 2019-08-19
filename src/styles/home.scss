@@ -7,36 +7,20 @@
 }
 
 .category-hero {
-    text-decoration: none;
+    position: relative;
     width: calc(100% / 3 - 2rem);
     min-width: 15rem;
-    color: $font-color;
     margin: 1rem;
+    color: $font-color;
+    text-decoration: none;
     text-align: center;
+    border: 1px solid $font-color;
     transition: transform 0.1s;
     cursor: pointer;
-    position: relative;
-    @include shadow();
-
-    .glass {
-        @include glass-inner();
-        @include pattern-page();
-        z-index: 0;
-    }
-
-    h2 {
-        z-index: 10;
-        position: relative;
-    }
+    @include shadow(5px);
 
     &:hover {    
         @include shadow(10px);
         transform: translate(-5px, -5px);
-        // transform: scale(1.05);
-        .glass {
-            filter: blur(6px);
-        }
     }
-
-
 }

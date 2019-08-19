@@ -20,64 +20,16 @@ html, body, #root {
   sans-serif
 }
 
-// body {
-//   color: $font-color;
-//   background-color: #222;
-//   background-image: url(https://loremflickr.com/1920/1080/abstract);
-//   background-size: cover;
-//   background-position: center center;
-//   background-repeat: no-repeat;
-//   font-size: 1em;
-// }
-
 body {
-  background: radial-gradient(ellipse at bottom, #5091DD 0%, #030617 100%);
-}
-
-// $lineColor: #030617;
-$lineColor: #030617;
-$step: 3;
-$borderWeight: 1px;
-
-@function borderShadow ($n) {
-  $value: '0px 0px #{$lineColor}';
-  @for $i from 0 through $n {
-    $value: '#{$value} , 0px #{($step)*$i}px #{$lineColor}';
-  }
-  @return unquote($value);
-}
-
-@function stripeShadow ($n) {
-  $value: '0px 0px #{$lineColor}';
-  @for $i from 0 through $n {
-    $value: '#{$value} , #{($step)*$i}px 0px #{$lineColor}';
-  }
-
-  @return unquote($value);
-}
-
-$border:  borderShadow(1000);
-$stripe:  stripeShadow(1000);
-
-#grid {
-  width: 100%;
-  height: $borderWeight;
-  box-shadow: $border;
-  
-  &:after {
-    content: "";
-    position: absolute;
-    width: $borderWeight;
-    height: 100%;
-    box-shadow: $stripe;
-  }    
+  background-color: $primary;
 }
 
 button {
   border-radius: $radius;
   color: $font-color;
+  background-color: $primary;
   outline: none;
-  border: 1px solid transparent;
+  border: 3px solid $font-color;
   padding: 0.5rem;
   
   &.action {
@@ -92,19 +44,7 @@ button {
   justify-content: center;
 }
 
-.glass {  
-  position: relative;
-  padding: 0.5rem;
-  &>* {
-    position: relative;
-    z-index: 1;
-  }
-  &>.inner {
-    @include glass-inner();
-    z-index: 0;
-  }
-  &:hover .inner {
-    filter: blur(0);
-  }
-  
+.row {
+  display: flex;
+  flex-direction: row;
 }

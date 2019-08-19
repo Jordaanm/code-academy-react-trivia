@@ -1,0 +1,39 @@
+.mask {
+    height: 100%;
+    min-width: 2em;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .counter {
+    position: relative;
+    &:not(.no-anim) {
+        animation: slideup 2s;
+    }
+  }
+  
+  .counter:before {
+    position: absolute;
+    content: attr(data-prev);
+    top: -1em;
+    opacity: 0;
+    animation: hidden 2s;
+  }
+  
+  @keyframes hidden {
+    0% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  @keyframes slideup {
+    0% {
+      transform: translateY(100%);
+    }
+    90% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }

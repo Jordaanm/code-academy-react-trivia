@@ -9,6 +9,7 @@ import { Question } from '../components/question';
 import "../styles/category-page.scss";
 import { TriviaQuestion } from '../types';
 import { LoadingThrobber } from '../components/loading-throbber';
+import { RoundSummary } from '../components/round-summary';
 
 interface MatchParams {
   categoryId: string;
@@ -87,13 +88,11 @@ export class CategoryPage extends React.Component<CategoryPageProps> {
               </button>
             }
           </div>}
-          {showSummary && <div className="round-summary">
-            Final Score: {correctAnswers} / {currentQuestions!.length || 0}
-            <button className="action glass" onClick={() => this.playAgain()}>
-              <span>Play Again</span>
-              <div className="inner"></div>
-            </button>
-          </div>}
+          {showSummary && <RoundSummary
+            score={correctAnswers}
+            total={currentQuestions!.length || 0}
+            playAgain={() => this.playAgain()}
+          />}
         </>
       </PageLayout>
     );
