@@ -1,0 +1,28 @@
+@import "./shared";
+
+.answer {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: 3px solid $font-color;
+    transition: transform 0.1s;
+    align-items: center;
+    @include shadow();
+
+    .checkbox {
+        height: 2rem;
+        width: 2rem;
+        margin-right: 1rem;
+        border: 2px solid;
+        &.answered {
+            background-color: $font-color;
+        }
+    }
+
+    &:hover {
+        @include shadow(10px);
+        transform: translate(-5px, -5px);
+    }
+}
