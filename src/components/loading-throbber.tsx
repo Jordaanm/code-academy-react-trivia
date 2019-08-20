@@ -10,7 +10,7 @@ export const LoadingThrobber:React.FC<LoadingThrobberProps> = ({title, type }) =
     return (
         <div className="loading">
             <span>{title}</span>
-            <ReactLoading type={type||'bars'} color={'rgba(255,255,255,0.8)'} />
+            <ReactLoading type={type||'bars'} color="black" />
         </div>
     );
 }

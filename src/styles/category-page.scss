@@ -1,6 +1,6 @@
 @import "./shared";
 
-.question-container {    
+.question-list {    
     padding: 0 0.5rem;
 }
 
@@ -12,8 +12,9 @@
 .question {
     display: flex;
     flex-direction: column;
-    align-items: center;
     word-break: break-word;
+    padding: 1rem;
+    margin-bottom: 2rem;
 
     &.answered {
         .correct {
@@ -27,7 +28,6 @@
 
 
     .question-title {
-        text-align: center;
         h3 {
             position: relative;
             z-index: 1;
@@ -46,7 +46,7 @@
         flex-direction: column;
         width: 100%;
         
-        label {
+        .answer {
             width: 100%;
             margin-bottom: 1rem;
             padding: 1rem;
@@ -55,11 +55,17 @@
             border: 3px solid $font-color;
             border-radius: $radius;
             transition: transform 0.1s;
+            align-items: center;
             @include shadow();
 
-            input {
-                opacity: 0;
-                width: 0;
+            .checkbox {
+                height: 2rem;
+                width: 2rem;
+                margin-right: 1rem;
+                border: 2px solid;
+                &.answered {
+                    background-color: $font-color;
+                }
             }
 
             &:hover {
@@ -77,4 +83,25 @@
     button {
         margin-top: 1em;
     }
+    width: 100%;
+}
+
+.result {
+    margin-bottom: 1rem;
+    border: 2px solid;
+    padding: 0.5rem;
+}
+
+.headers {
+    padding: 0.5rem;
+    font-weight: 600;
+}
+    
+.result__question {
+    flex: 2;
+    margin-right: 2em;
+}
+
+.result__given, .result__correct {
+    flex: 1;
 }

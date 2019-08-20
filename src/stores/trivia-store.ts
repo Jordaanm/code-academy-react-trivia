@@ -1,7 +1,7 @@
 import { observable, computed } from 'mobx';
 
 import { trivia_categories } from './category-data.json';
-import { Category, TriviaQuestion } from '../types';
+import { Category, TriviaQuestion, QuestionResult } from '../types';
 
 export class TriviaStore {
     public static CATEGORIES_ENDPOINT: string = 'https://opentdb.com/api_category.php';
@@ -75,7 +75,7 @@ export class TriviaStore {
     ************/
 
     @observable
-    public submittedAnswers: Map<string, string> = new Map();
+    public selectedAnswers: Map<string, QuestionResult> = new Map();
 
     @computed
     public get correctAnswers(): number {
@@ -84,8 +84,8 @@ export class TriviaStore {
         }
 
         return this.currentQuestions.filter(question => {
-            const answer = this.submittedAnswers.get(question.question);
-            return answer === question.correct_answer;
+            const answer = this.selectedAnswers.get(question.question);
+            return answer && answer.givenAnswer === question.correct_answer;
         }).length || 0;
     };
 
@@ -96,8 +96,12 @@ export class TriviaStore {
     public hasRoundStarted: boolean = false;
 
 
-    public submitAnswer(question: TriviaQuestion, answer: string) {
-        this.submittedAnswers.set(question.question, answer);
+    public selectAnswer(question: TriviaQuestion, answer: string) {
+        this.selectedAnswers.set(question.question, {
+            question: question.question,
+            correctAnswer: question.correct_answer,
+            givenAnswer: answer
+        });
     }
 
     public nextQuestion() {
@@ -110,7 +114,7 @@ export class TriviaStore {
 
     public startRound() {
         this.questionIndex = 0;
-        this.submittedAnswers.clear();
+        this.selectedAnswers.clear();
         this.hasRoundStarted = true;
     }
 

@@ -18,3 +18,9 @@ export interface TriviaQuestion {
     incorrect_answers: string[],
     all_answers: string[]
 }
+
+export interface QuestionResult {
+    question: string;
+    correctAnswer: string;
+    givenAnswer: string;
+}
