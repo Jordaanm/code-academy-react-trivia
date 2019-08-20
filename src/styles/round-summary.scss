@@ -1,7 +1,33 @@
 .round-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    button {
+        margin-top: 1em;
+    }
     .scoring {
         height: 2em;
         font-size: 1.2em;
         font-weight: 600;
+    }
+
+    .result {
+        margin-bottom: 1rem;
+        border: 2px solid;
+        padding: 0.5rem;
+    }
+    
+    .headers {
+        padding: 0.5rem;
+        font-weight: 600;
+    }
+        
+    .result__question {
+        flex: 2;
+        margin-right: 2em;
+    }
+    
+    .result__given, .result__correct {
+        flex: 1;
     }
 }

@@ -79,9 +79,8 @@ export class CategoryPage extends React.Component<CategoryPageProps> {
         <>
           {isLoadingQuestions && <LoadingThrobber title="Loading Trivia Questions" />}
           {!isLoadingQuestions && !hasRoundStarted && !showSummary &&
-            <button className="glass action" onClick={startRound}>
+            <button className="action" onClick={startRound}>
               <span>Start the Round</span>
-              <div className="inner"></div>
             </button>
           }
           <div className="scrollMarker" ref={this.questionListRef}></div>

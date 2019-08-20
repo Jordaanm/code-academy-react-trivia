@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { TriviaQuestion } from '../types';
 import { observer } from 'mobx-react';
+
+import { TriviaQuestion } from '../types';
+import { Answer } from './answer';
 
 interface QuestionProps {
     triviaQuestion: TriviaQuestion;
@@ -22,14 +24,16 @@ export class Question extends React.Component<QuestionProps> {
             </div>
             <h4 className="question-difficulty">Difficulty: {difficulty}</h4>
             
-            <form className="question-answers">
+            <section className="question-answers">
                 {all_answers.map(answer =>
-                    <div className="answer row" key={answer} onClick={() => selectAnswer(triviaQuestion, answer)} >
-                        <span className={`checkbox ${givenAnswer === answer ? 'answered' : ''}`}></span>
-                        {answer}
-                    </div>
+                    <Answer
+                        question={triviaQuestion}
+                        answer={answer}
+                        isSelected={givenAnswer === answer}
+                        selectAnswer={selectAnswer}
+                    />
                 )}
-            </form>
+            </section>
 
         </article>);
     }

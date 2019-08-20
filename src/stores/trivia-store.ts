@@ -90,9 +90,6 @@ export class TriviaStore {
     };
 
     @observable
-    public questionIndex: number = 0;
-
-    @observable
     public hasRoundStarted: boolean = false;
 
 
@@ -104,16 +101,7 @@ export class TriviaStore {
         });
     }
 
-    public nextQuestion() {
-        if (!this.currentQuestions || this.questionIndex >= (this.currentQuestions.length - 1)) {
-            this.endRound();
-        } else {
-            this.questionIndex += 1;
-        }
-    }
-
     public startRound() {
-        this.questionIndex = 0;
         this.selectedAnswers.clear();
         this.hasRoundStarted = true;
     }

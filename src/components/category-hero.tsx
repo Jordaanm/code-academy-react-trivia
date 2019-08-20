@@ -7,9 +7,8 @@ export class CategoryHero extends React.Component<Category> {
     public render() {
         const { id, name } = this.props;
         
-        return (<Link to={`/${id}`} className="category-hero glass">
+        return (<Link to={`/${id}`} className="category-hero">
             <h2>{name}</h2>
-            <div className="inner"></div>
         </Link>);
     }
 }

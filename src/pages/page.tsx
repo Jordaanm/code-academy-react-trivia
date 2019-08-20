@@ -20,10 +20,7 @@ export class PageLayout extends React.Component<PageProps> {
       <div className={`page ${classNames}`} >
         <header>
           <div className="page-container">
-            <div className="glass">
-              <h1>{title}</h1>
-              <div className="inner"></div>
-            </div>
+            <h1>{title}</h1>
           </div>
         </header>
         <main>
